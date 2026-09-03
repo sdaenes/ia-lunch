@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les Rendez-vous de l'IA — un midi par mois à Hortiloft, près d'Amiens</title>
+<meta name="description" content="Lunch and learn pour dirigeants de TPE et PME de la métropole amiénoise. Plateau repas inclus, une heure, l'IA sans jargon. Salle Hortiloft, Rivery.">
+<meta property="og:title" content="Les Rendez-vous de l'IA">
+<meta property="og:description" content="Un midi par mois à Hortiloft, près d'Amiens. Vous déjeunez, on vous explique.">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,600;0,700;1,9..144,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ardoise:#12332C;
+    --ardoise-clair:#1E4A40;
+    --eau:#2F6B5E;
+    --papier:#EDEFE6;
+    --papier-clair:#F7F8F3;
+    --betterave:#B8395F;
+    --betterave-fonce:#8F2A49;
+    --encre:#18201D;
+    --gris:#57635E;
+    --mesure:34rem;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    margin:0;
+    background:var(--papier);
+    color:var(--encre);
+    font-family:"Karla","Helvetica Neue",Arial,sans-serif;
+    font-size:1.0625rem;
+    line-height:1.62;
+    font-variant-numeric:oldstyle-nums;
+  }
+
+  h1,h2,h3{
+    font-family:"Fraunces",Georgia,"Times New Roman",serif;
+    font-variation-settings:"SOFT" 40,"WONK" 1;
+    font-weight:600;
+    line-height:1.06;
+    margin:0;
+    letter-spacing:-0.015em;
+  }
+
+  p{margin:0 0 1.15em;}
+  p:last-child{margin-bottom:0;}
+
+  a{color:var(--betterave-fonce);}
+
+  .enveloppe{
+    max-width:52rem;
+    margin:0 auto;
+    padding:0 1.5rem;
+  }
+
+  .mesure{max-width:var(--mesure);}
+
+  :focus-visible{
+    outline:3px solid var(--betterave);
+    outline-offset:3px;
+  }
+
+  /* ---------- Ardoise : en-tête ---------- */
+
+  .ardoise{
+    background:var(--ardoise);
+    color:var(--papier-clair);
+    padding:5.5rem 0 5rem;
+    text-align:center;
+    border-bottom:6px double var(--eau);
+  }
+
+  .ardoise h1{
+    font-size:clamp(2.75rem,9vw,5.25rem);
+    font-weight:700;
+    margin:0 auto .9rem;
+    max-width:14ch;
+  }
+
+  .promesse{
+    font-family:"Fraunces",Georgia,serif;
+    font-style:italic;
+    font-size:clamp(1.15rem,3.2vw,1.5rem);
+    line-height:1.4;
+    color:#C6D6CD;
+    max-width:30ch;
+    margin:0 auto 2.25rem;
+  }
+
+  .coordonnees{
+    font-size:.95rem;
+    line-height:1.9;
+    color:#A9BFB6;
+    margin-bottom:2.5rem;
+  }
+
+  .coordonnees strong{
+    color:var(--papier-clair);
+    font-weight:500;
+  }
+
+  .lever{
+    animation:lever .8s cubic-bezier(.2,.7,.3,1) both;
+  }
+  .lever-2{animation-delay:.12s;}
+  .lever-3{animation-delay:.22s;}
+  .lever-4{animation-delay:.32s;}
+
+  @keyframes lever{
+    from{opacity:0;transform:translateY(14px);}
+    to{opacity:1;transform:none;}
+  }
+
+  /* ---------- Bouton ---------- */
+
+  .bouton{
+    display:inline-block;
+    background:var(--betterave);
+    color:#fff;
+    font-family:"Karla",sans-serif;
+    font-size:1.05rem;
+    font-weight:700;
+    text-decoration:none;
+    padding:.95rem 2.1rem;
+    border:none;
+    border-radius:2px;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  .bouton:hover{background:var(--betterave-fonce);}
+
+  /* ---------- Sections claires ---------- */
+
+  .bloc{padding:4.5rem 0;}
+  .bloc + .bloc{padding-top:0;}
+
+  .bloc h2{
+    font-size:clamp(1.7rem,4.5vw,2.4rem);
+    margin-bottom:1.4rem;
+  }
+
+  .intro p{color:#2C3733;}
+
+  /* ---------- Le menu ---------- */
+
+  .carte{
+    background:var(--papier-clair);
+    border:1px solid #D6DCD2;
+    padding:2.75rem 2rem 2.25rem;
+  }
+
+  .carte h2{
+    text-align:center;
+    margin-bottom:.35rem;
+  }
+
+  .carte .sous-titre{
+    text-align:center;
+    color:var(--gris);
+    font-size:.95rem;
+    margin-bottom:2.5rem;
+  }
+
+  .service{
+    padding:1.5rem 0;
+    border-top:1px solid #DDE3D9;
+  }
+  .service:first-of-type{border-top:none;padding-top:0;}
+
+  .ligne{
+    display:flex;
+    align-items:baseline;
+    gap:.6rem;
+    margin-bottom:.5rem;
+  }
+
+  .service h3{
+    font-size:1.3rem;
+    font-weight:600;
+    flex:0 1 auto;
+  }
+
+  .pointilles{
+    flex:1 1 auto;
+    border-bottom:1px dotted #A8B4AC;
+    transform:translateY(-.28em);
+    min-width:1.5rem;
+  }
+
+  .heure{
+    flex:0 0 auto;
+    font-size:.95rem;
+    color:var(--eau);
+    font-weight:500;
+    white-space:nowrap;
+  }
+
+  .service p{
+    color:#3A4642;
+    max-width:var(--mesure);
+    font-size:1rem;
+  }
+
+  .cours{
+    font-family:"Fraunces",Georgia,serif;
+    font-style:italic;
+    font-size:.95rem;
+    color:var(--betterave);
+    display:block;
+    margin-bottom:.15rem;
+  }
+
+  /* ---------- Infos pratiques ---------- */
+
+  .pratique{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
+    gap:1.75rem 2.5rem;
+    margin-top:2rem;
+    padding-top:2rem;
+    border-top:6px double #D6DCD2;
+  }
+
+  .pratique dt{
+    font-family:"Fraunces",Georgia,serif;
+    font-weight:600;
+    font-size:1.05rem;
+    margin-bottom:.15rem;
+  }
+
+  .pratique dd{
+    margin:0;
+    color:var(--gris);
+    font-size:.98rem;
+  }
+
+  /* ---------- Inscription ---------- */
+
+  .inscription{
+    background:var(--ardoise);
+    color:var(--papier-clair);
+    padding:4.5rem 0 4.75rem;
+    margin-top:4.5rem;
+  }
+
+  .inscription h2{
+    color:var(--papier-clair);
+    font-size:clamp(1.7rem,4.5vw,2.4rem);
+    margin-bottom:.8rem;
+  }
+
+  .inscription .amorce{
+    color:#A9BFB6;
+    max-width:38ch;
+    margin-bottom:2.25rem;
+  }
+
+  .champ{margin-bottom:1.25rem;max-width:26rem;}
+
+  .champ label{
+    display:block;
+    font-size:.92rem;
+    font-weight:500;
+    margin-bottom:.35rem;
+    color:#C6D6CD;
+  }
+
+  .champ input,
+  .champ textarea{
+    width:100%;
+    font-family:inherit;
+    font-size:1rem;
+    color:var(--encre);
+    background:var(--papier-clair);
+    border:1px solid var(--ardoise-clair);
+    border-radius:2px;
+    padding:.7rem .8rem;
+  }
+
+  .champ textarea{min-height:5.5rem;resize:vertical;}
+
+  .facultatif{color:#8CA69B;font-weight:400;}
+
+  .rassurance{
+    font-size:.88rem;
+    color:#8CA69B;
+    max-width:34ch;
+    margin-top:1.1rem;
+  }
+
+  .confirmation{
+    display:none;
+    border-left:3px solid var(--eau);
+    padding:1.1rem 0 1.1rem 1.2rem;
+    max-width:34rem;
+  }
+
+  .confirmation h3{
+    color:var(--papier-clair);
+    font-size:1.45rem;
+    margin-bottom:.5rem;
+  }
+
+  .confirmation p{color:#A9BFB6;}
+
+  /* ---------- Pied ---------- */
+
+  .pied{
+    padding:2.25rem 0 3rem;
+    font-size:.88rem;
+    color:var(--gris);
+  }
+
+  .pied a{color:var(--gris);}
+
+  @media (max-width:34rem){
+    .ardoise{padding:4rem 0 3.5rem;}
+    .carte{padding:2rem 1.25rem 1.75rem;}
+    .ligne{flex-wrap:wrap;gap:.35rem;}
+    .pointilles{display:none;}
+    .heure{flex-basis:100%;order:3;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .lever{animation:none;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="ardoise">
+  <div class="enveloppe">
+    <h1 class="lever">Les Rendez-vous de l'IA</h1>
+    <p class="promesse lever lever-2">Une heure, un plateau repas, et l'IA enfin concrète pour votre entreprise.</p>
+    <!-- À MODIFIER : date de la prochaine session -->
+    <p class="coordonnees lever lever-3">
+      <strong>Jeudi 8 octobre, de 12h à 14h</strong><br>
+      Salle de séminaire Hortiloft — Rivery, près d'Amiens<br>
+      Plateau repas offert · 20 places
+    </p>
+    <a class="bouton lever lever-4" href="#inscription">Je réserve ma place</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="bloc intro">
+    <div class="enveloppe">
+      <div class="mesure">
+        <h2>Vous déjeunez, on vous explique.</h2>
+        <p>L'intelligence artificielle avance vite, et quand on dirige une petite structure, on n'a ni le temps ni l'envie de trier le vrai du marketing.</p>
+        <p>Ces rendez-vous existent pour ça. Pas de jargon, pas de promesse magique. Des cas réels, des outils que vous pouvez tester dès le lendemain, et des retours d'expérience honnêtes — y compris ceux qui n'ont pas marché.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="enveloppe">
+      <div class="carte">
+        <h2>Au menu</h2>
+        <p class="sous-titre">En plus du sandwich.</p>
+
+        <div class="service">
+          <div class="ligne">
+            <h3>Les nouveautés du mois</h3>
+            <span class="pointilles" aria-hidden="true"></span>
+            <span class="heure">12h20</span>
+          </div>
+          <span class="cours">Entrée</span>
+          <p>Ce qui est sorti, et surtout ce qui compte vraiment pour une entreprise de votre taille. Le reste, on le laisse de côté.</p>
+        </div>
+
+        <div class="service">
+          <div class="ligne">
+            <h3>Le retour d'expérience</h3>
+            <span class="pointilles" aria-hidden="true"></span>
+            <span class="heure">12h45</span>
+          </div>
+          <span class="cours">Plat de résistance</span>
+          <p>Un dirigeant local raconte ce qu'il a mis en place : le temps que ça lui a pris, ce que ça lui a coûté, ce que ça lui rapporte. Et ce qu'il ne referait pas.</p>
+        </div>
+
+        <div class="service">
+          <div class="ligne">
+            <h3>Vos questions</h3>
+            <span class="pointilles" aria-hidden="true"></span>
+            <span class="heure">13h25</span>
+          </div>
+          <span class="cours">Dessert</span>
+          <p>Autour du café, sans micro et sans ordre du jour. C'est souvent le moment le plus utile de la séance.</p>
+        </div>
+
+        <dl class="pratique">
+          <div>
+            <dt>Pour qui</dt>
+            <dd>Dirigeants, indépendants et responsables de TPE et PME de la métropole amiénoise.</dd>
+          </div>
+          <div>
+            <dt>Niveau</dt>
+            <dd>Aucun prérequis technique. Venez avec vos questions, même les plus basiques.</dd>
+          </div>
+          <div>
+            <dt>Où</dt>
+            <dd>Salle de séminaire Hortiloft, Rivery. Stationnement sur place.</dd>
+          </div>
+          <div>
+            <dt>Combien</dt>
+            <dd>Gratuit, plateau repas compris. 20 places pour garder les échanges vivants.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="inscription" id="inscription">
+    <div class="enveloppe">
+      <h2>Je réserve ma place</h2>
+      <p class="amorce">Il reste des places pour la prochaine session. Deux minutes suffisent.</p>
+
+      <!-- À BRANCHER : remplacez l'action par l'URL de votre formulaire (Brevo, Mailchimp, Formspree…) -->
+      <form id="formulaire">
+        <div class="champ">
+          <label for="nom">Prénom et nom</label>
+          <input type="text" id="nom" name="nom" autocomplete="name" required>
+        </div>
+        <div class="champ">
+          <label for="entreprise">Entreprise</label>
+          <input type="text" id="entreprise" name="entreprise" autocomplete="organization" required>
+        </div>
+        <div class="champ">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="champ">
+          <label for="sujet">Un sujet que vous aimeriez qu'on aborde <span class="facultatif">(facultatif)</span></label>
+          <textarea id="sujet" name="sujet"></textarea>
+        </div>
+        <button type="submit" class="bouton">Je réserve ma place</button>
+        <p class="rassurance">Inscription en deux clics, désinscription libre. Vos coordonnées ne sont jamais revendues.</p>
+      </form>
+
+      <div class="confirmation" id="confirmation" role="status">
+        <h3>Place réservée.</h3>
+        <p>Vous recevrez un mail de confirmation avec le plan d'accès à Hortiloft et l'heure d'ouverture des portes. À très bientôt.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pied">
+  <div class="enveloppe">
+    Les Rendez-vous de l'IA — Hortiloft, Rivery (80).
+    Une question&nbsp;? <a href="mailto:contact@exemple.fr">contact@exemple.fr</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('formulaire').addEventListener('submit', function (e) {
+    e.preventDefault();
+    // Envoyez ici les données vers votre outil d'inscription, puis :
+    this.style.display = 'none';
+    var c = document.getElementById('confirmation');
+    c.style.display = 'block';
+    c.focus();
+  });
+</script>
+
+</body>
+</html>
