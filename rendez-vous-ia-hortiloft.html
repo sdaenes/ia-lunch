@@ -465,11 +465,19 @@
 <script>
   document.getElementById('formulaire').addEventListener('submit', function (e) {
     e.preventDefault();
-    // Envoyez ici les données vers votre outil d'inscription, puis :
-    this.style.display = 'none';
-    var c = document.getElementById('confirmation');
-    c.style.display = 'block';
-    c.focus();
+    var form = this;
+    var donnees = new FormData(form);
+
+    fetch('https://script.google.com/macros/s/AKfycbwcQ-xJTY1aPoMiP-iPhXYEPC6b-ySMw6TCkwjw0qs_vM0HJxttXfL1TkXoT-ros0Vm/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: donnees
+    }).finally(function () {
+      form.style.display = 'none';
+      var c = document.getElementById('confirmation');
+      c.style.display = 'block';
+      c.focus();
+    });
   });
 </script>
 
